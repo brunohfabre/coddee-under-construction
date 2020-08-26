@@ -4,14 +4,14 @@ import { GlobalStyle } from './styles/global';
 
 import Home from './pages/Home';
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
-      <GlobalStyle></GlobalStyle>
+      <GlobalStyle />
 
-      <Home></Home>
+      <Home />
     </>
-  )
-}
+  );
+};
 
 export default App;

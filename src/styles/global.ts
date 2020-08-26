@@ -20,6 +20,10 @@ export const GlobalStyle = createGlobalStyle`
     flex: 1;
   }
 
+  button {
+    cursor: pointer;
+  }
+
   input{
     font: 400 16px Roboto, sans-serif;
   }
