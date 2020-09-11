@@ -1,10 +1,35 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
-export const Container = styled.div`
+interface ContainerProps {
+  message: boolean;
+}
+
+export const Overlay = styled.div<ContainerProps>`
+  position: absolute;
+  z-index: 10;
+
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(10px);
+  visibility: ${props => (props.message ? 'visible' : 'hidden')};
+  opacity: ${props => (props.message ? 1 : 0)};
+
+  transition: visibility 0.2s, opacity 0.2s;
+`;
+
+export const Container = styled.div<ContainerProps>`
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 32px;
+  transition: transform 0.2s;
+
+  ${props =>
+    props.message &&
+    css`
+      transform: translateX(-520px);
+    `}
 `;
 
 export const Header = styled.div``;
@@ -66,7 +91,7 @@ export const Footer = styled.div`
   align-self: flex-end;
   height: 24px;
 
-  button {
+  a {
     border: none;
     background: transparent;
     height: 24px;
@@ -81,7 +106,7 @@ export const Footer = styled.div`
       transition: opacity 0.2s;
     }
 
-    & + button {
+    & + a {
       margin-left: 16px;
     }
   }

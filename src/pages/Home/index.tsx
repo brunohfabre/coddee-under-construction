@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   FiMessageCircle,
   FiTwitter,
@@ -8,38 +8,43 @@ import {
 
 import logoImage from '../../assets/icons/logo.svg';
 
-import { Container, Header, Content, Footer } from './styles';
+import { Overlay, Container, Header, Content, Footer } from './styles';
 
 const Home: React.FC = () => {
+  const [message, setMessage] = useState(true);
+
   return (
-    <Container>
-      <Header>
-        <img src={logoImage} alt="Coddee" />
-      </Header>
+    <>
+      <Overlay message={message} onClick={() => setMessage(false)} />
+      <Container message={message}>
+        <Header>
+          <img src={logoImage} alt="Coddee" />
+        </Header>
 
-      <Content>
-        <h1>No momento estamos contruindo um novo site.</h1>
+        <Content>
+          <h1>No momento estamos contruindo um novo site.</h1>
 
-        <button type="button">
-          Envie uma mensagem
-          <FiMessageCircle size={20} />
-        </button>
-      </Content>
+          <button type="button" onClick={() => setMessage(true)}>
+            Envie uma mensagem
+            <FiMessageCircle size={20} />
+          </button>
+        </Content>
 
-      <Footer>
-        <button type="button">
-          <FiTwitter size={24} />
-        </button>
+        <Footer>
+          <a href="http://www.twitter.com/coddee">
+            <FiTwitter size={24} />
+          </a>
 
-        <button type="button">
-          <FiInstagram size={24} />
-        </button>
+          <a href="http://www.instagram.com/coddee">
+            <FiInstagram size={24} />
+          </a>
 
-        <button type="button">
-          <FiYoutube size={24} />
-        </button>
-      </Footer>
-    </Container>
+          <a href="http://www.youtube.com/coddee">
+            <FiYoutube size={24} />
+          </a>
+        </Footer>
+      </Container>
+    </>
   );
 };
 
