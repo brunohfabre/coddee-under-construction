@@ -86,6 +86,13 @@ export const Content = styled.div`
     }
   }
 
+  @media (max-width: 900px) {
+    h1 {
+      font-size: 48px;
+      font-size: 54px;
+    }
+  }
+
   @media (max-width: 720px) {
     h1 {
       font-size: 36px;
@@ -160,7 +167,9 @@ export const MessageContainer = styled.div<ContainerProps>`
   form {
     textarea {
       min-height: 180px;
+      max-height: 400px;
       margin-top: 8px;
+      resize: vertical;
     }
 
     input + input {
