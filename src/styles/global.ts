@@ -28,8 +28,25 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
-  input{
+  input, textarea {
     font: 400 16px Roboto, sans-serif;
+
+    color: #201432;
+
+    width: 100%;
+
+    border: 1px solid #F0F0F0;
+    border-radius: 4px;
+    background: #fff;
+    padding: 20px 16px;
+
+    &::placeholder {
+      color: #CCCCCC;
+    }
+
+    &:focus {
+      border: 1px solid #6C2FFC;
+    }
   }
 
   body, button {

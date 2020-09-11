@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   FiMessageCircle,
   FiTwitter,
@@ -19,6 +19,12 @@ import {
 
 const Home: React.FC = () => {
   const [message, setMessage] = useState(false);
+
+  const handleSubmit = useCallback(e => {
+    e.preventDefault();
+
+    alert('send form');
+  }, []);
 
   return (
     <>
@@ -57,16 +63,15 @@ const Home: React.FC = () => {
 
       {message && (
         <MessageContainer message={message}>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Necessitatibus magnam non ea. Consequatur rem nihil tenetur quae
-            expedita quos laborum voluptate. Quos velit est, tenetur similique
-            ipsa neque reprehenderit unde.
-          </p>
+          <h2>Envie sua mensagem</h2>
 
-          <button type="button" onClick={() => setMessage(false)}>
-            Fechar
-          </button>
+          <form onSubmit={handleSubmit}>
+            <input name="name" type="text" placeholder="Nome" />
+            <input name="email" type="email" placeholder="Email" />
+            <textarea name="name" placeholder="Mensagem" />
+
+            <button type="submit">Enviar</button>
+          </form>
         </MessageContainer>
       )}
     </>

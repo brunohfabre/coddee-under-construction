@@ -21,7 +21,7 @@ export const Overlay = styled.div<ContainerProps>`
 
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.32);
+  background: rgba(245, 246, 247, 0.32);
   backdrop-filter: blur(10px);
 
   transition: visibility 0.2s, opacity 0.2s;
@@ -135,19 +135,52 @@ const messageContainerAnimation = keyframes`
 `;
 
 export const MessageContainer = styled.div<ContainerProps>`
-  padding: 16px;
-  background: tomato;
+  padding: 80px;
+  background: #fff;
   width: 520px;
   height: 100vh;
   position: absolute;
   z-index: 15;
   animation: ${messageContainerAnimation} 0.2s normal forwards;
-
-  button {
-    padding: 16px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   @media (max-width: 720px) {
     width: 100vw;
+    padding: 32px;
+  }
+
+  h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  form {
+    textarea {
+      min-height: 180px;
+      margin-top: 8px;
+    }
+
+    input + input {
+      margin-top: 8px;
+    }
+
+    button {
+      margin-top: 32px;
+
+      width: 100%;
+      height: 60px;
+      padding: 0 32px;
+      border-radius: 4px;
+      color: #fafafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      background: linear-gradient(to top right, #6c2ffc, #892ffc);
+      transition: opacity 0.2s;
+    }
   }
 `;
