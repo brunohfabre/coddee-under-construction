@@ -111,3 +111,16 @@ export const Footer = styled.div`
     }
   }
 `;
+
+export const MessageContainer = styled.div<ContainerProps>`
+  background: tomato;
+  width: 520px;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  transform: ${props =>
+    props.message ? 'translateX(0)' : 'translateX(520px)'};
+  z-index: 15;
+  visibility: ${props => (props.message ? 'visible' : 'hidden')};
+  transition: visibility 0.2s, transform 0.2s;
+`;

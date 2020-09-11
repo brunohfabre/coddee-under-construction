@@ -8,6 +8,10 @@ export const GlobalStyle = createGlobalStyle`
     outline: 0;
   }
 
+  html {
+    overflow: hidden;
+  }
+
   body {
     color: #201432;
     background: linear-gradient(#FAFAFC, #FBFBFD);

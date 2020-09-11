@@ -8,14 +8,22 @@ import {
 
 import logoImage from '../../assets/icons/logo.svg';
 
-import { Overlay, Container, Header, Content, Footer } from './styles';
+import {
+  Overlay,
+  Container,
+  Header,
+  Content,
+  Footer,
+  MessageContainer,
+} from './styles';
 
 const Home: React.FC = () => {
-  const [message, setMessage] = useState(true);
+  const [message, setMessage] = useState(false);
 
   return (
     <>
       <Overlay message={message} onClick={() => setMessage(false)} />
+
       <Container message={message}>
         <Header>
           <img src={logoImage} alt="Coddee" />
@@ -44,6 +52,15 @@ const Home: React.FC = () => {
           </a>
         </Footer>
       </Container>
+
+      <MessageContainer message={message}>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Necessitatibus magnam non ea. Consequatur rem nihil tenetur quae
+          expedita quos laborum voluptate. Quos velit est, tenetur similique
+          ipsa neque reprehenderit unde.
+        </p>
+      </MessageContainer>
     </>
   );
 };
