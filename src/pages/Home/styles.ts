@@ -1,8 +1,19 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 interface ContainerProps {
   message: boolean;
 }
+
+const overlayAnimation = keyframes`
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+`;
 
 export const Overlay = styled.div<ContainerProps>`
   position: absolute;
@@ -12,10 +23,10 @@ export const Overlay = styled.div<ContainerProps>`
   height: 100vh;
   background: rgba(255, 255, 255, 0.32);
   backdrop-filter: blur(10px);
-  visibility: ${props => (props.message ? 'visible' : 'hidden')};
-  opacity: ${props => (props.message ? 1 : 0)};
 
   transition: visibility 0.2s, opacity 0.2s;
+
+  animation: ${overlayAnimation} 0.2s;
 `;
 
 export const Container = styled.div<ContainerProps>`
@@ -112,15 +123,31 @@ export const Footer = styled.div`
   }
 `;
 
+const messageContainerAnimation = keyframes`
+  from {
+    right: -520px;
+    visibility: hidden;
+  }
+  to {
+    right: 0;
+    visibility: visible;
+  }
+`;
+
 export const MessageContainer = styled.div<ContainerProps>`
+  padding: 16px;
   background: tomato;
   width: 520px;
   height: 100vh;
   position: absolute;
-  right: 0;
-  transform: ${props =>
-    props.message ? 'translateX(0)' : 'translateX(520px)'};
   z-index: 15;
-  visibility: ${props => (props.message ? 'visible' : 'hidden')};
-  transition: visibility 0.2s, transform 0.2s;
+  animation: ${messageContainerAnimation} 0.2s normal forwards;
+
+  button {
+    padding: 16px;
+  }
+
+  @media (max-width: 720px) {
+    width: 100vw;
+  }
 `;

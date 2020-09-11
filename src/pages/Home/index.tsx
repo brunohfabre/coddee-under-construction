@@ -22,7 +22,9 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Overlay message={message} onClick={() => setMessage(false)} />
+      {message && (
+        <Overlay message={message} onClick={() => setMessage(false)} />
+      )}
 
       <Container message={message}>
         <Header>
@@ -53,14 +55,20 @@ const Home: React.FC = () => {
         </Footer>
       </Container>
 
-      <MessageContainer message={message}>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Necessitatibus magnam non ea. Consequatur rem nihil tenetur quae
-          expedita quos laborum voluptate. Quos velit est, tenetur similique
-          ipsa neque reprehenderit unde.
-        </p>
-      </MessageContainer>
+      {message && (
+        <MessageContainer message={message}>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Necessitatibus magnam non ea. Consequatur rem nihil tenetur quae
+            expedita quos laborum voluptate. Quos velit est, tenetur similique
+            ipsa neque reprehenderit unde.
+          </p>
+
+          <button type="button" onClick={() => setMessage(false)}>
+            Fechar
+          </button>
+        </MessageContainer>
+      )}
     </>
   );
 };
