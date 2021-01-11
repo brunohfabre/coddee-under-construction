@@ -164,6 +164,10 @@ export const MessageContainer = styled.div<ContainerProps>`
     margin-bottom: 48px;
   }
 
+  button {
+    background: tomato;
+  }
+
   form {
     textarea {
       min-height: 180px;
@@ -190,6 +194,65 @@ export const MessageContainer = styled.div<ContainerProps>`
       border: 0;
       background: linear-gradient(to top right, #6c2ffc, #892ffc);
       transition: opacity 0.2s;
+      transition: background-color 0.2s;
+
+      &:hover {
+        opacity: 0.94;
+      }
+
+      &:active {
+        opacity: 1;
+      }
+
+      &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+`;
+
+export const MessageSendedContainer = styled.div`
+  padding: 80px;
+  background: #fff;
+  width: 520px;
+  height: 100vh;
+  position: absolute;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  visibility: visible;
+
+  h2 {
+    width: 256px;
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  button {
+    margin-top: 200px;
+
+    width: 100%;
+    height: 60px;
+    padding: 0 32px;
+    border: 1px solid #6c2ffc;
+    border-radius: 4px;
+    color: #201432;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.94;
+    }
+
+    &:active {
+      opacity: 1;
     }
   }
 `;
