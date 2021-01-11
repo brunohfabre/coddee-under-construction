@@ -117,7 +117,7 @@ Mensagem: ${messageInputRef.current.value},
           </button>
         </Content>
 
-        <Footer>
+        {/* <Footer>
           <a href="http://www.twitter.com/coddee">
             <FiTwitter size={24} />
           </a>
@@ -129,7 +129,7 @@ Mensagem: ${messageInputRef.current.value},
           <a href="http://www.youtube.com/coddee">
             <FiYoutube size={24} />
           </a>
-        </Footer>
+        </Footer> */}
       </Container>
 
       {message && !messageSended && (
