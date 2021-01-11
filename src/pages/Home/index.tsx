@@ -66,7 +66,7 @@ Mensagem: ${messageInputRef.current.value},
           {
             auth: {
               username: 'api',
-              password: 'e08e1ef9bd8976f9f11cf9c036810cca-28d78af2-658580d4',
+              password: process.env.REACT_APP_API_KEY as string,
             },
           },
         );
