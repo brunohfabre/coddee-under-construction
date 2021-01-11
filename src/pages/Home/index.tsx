@@ -1,11 +1,6 @@
 import React, { useRef, useState, useCallback } from 'react';
 import axios from 'axios';
-import {
-  FiMessageCircle,
-  FiTwitter,
-  FiInstagram,
-  FiYoutube,
-} from 'react-icons/fi';
+import { FiMessageCircle } from 'react-icons/fi';
 
 import logoImage from '../../assets/icons/logo.svg';
 import mailImage from '../../assets/icons/mail.svg';
@@ -15,7 +10,6 @@ import {
   Container,
   Header,
   Content,
-  Footer,
   MessageContainer,
   MessageSendedContainer,
 } from './styles';
